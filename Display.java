@@ -1,5 +1,6 @@
 public class Display {
     public static void Welcome() {
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("########################################################");
         System.out.println("#                                                      #");
         System.out.println("#              Welcome to Project A.B.E.L              #");
@@ -16,6 +17,7 @@ public class Display {
     }
 
     public static void Menu() {
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("########################################################");
         System.out.println("#                                                      #");
         System.out.println("#              Welcome to Project A.B.E.L              #");
