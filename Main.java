@@ -1,7 +1,11 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        AboutPage aboutPage = new AboutPage();
+        Scanner scan = new Scanner(System.in);
+        Display display = new Display();
 
-        aboutPage.printAboutP();
+        display.Welcome();
+        int welcomeOpt = scan.nextInt();
     }
 }
