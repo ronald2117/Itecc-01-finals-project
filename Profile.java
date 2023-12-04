@@ -5,8 +5,8 @@ public class Profile {
     String mName;                                         
     String lName;
     int age;
-    int phoneNum;
-    int teleNum;
+    String phoneNum;
+    String teleNum;
     String email;
     char gender;
     String maritalStatus;                                 
@@ -23,8 +23,8 @@ public class Profile {
                 String mName,
                 String lName,
                 int age,
-                int phoneNum,
-                int teleNum,
+                String phoneNum,
+                String teleNum,
                 String email,
                 char gender,
                 String maritalStatus,
