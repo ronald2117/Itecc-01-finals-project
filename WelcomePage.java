@@ -1,10 +1,11 @@
 import java.util.*;
 //width of my menu is 54 chars
-public class Display {
+public class WelcomePage {
     static Scanner scan= new Scanner(System.in);
     static Profile user = new Profile();
+    static MainMenu mainMenu = new MainMenu();
 
-    public static void Welcome() {
+    public static void displayWelcome() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("########################################################");
         System.out.println("#                                                      #");
@@ -25,22 +26,22 @@ public class Display {
         int welcomeOption = scan.nextInt();
         switch(welcomeOption) {
             case 1:
-                Login();
+                displayLogin();
                 break;
             case 2:
-                Signup();
+                displaySignup();
                 break;
             case 3:
-                Contacts();
+                displayContacts();
                 break;
             case 4:
-                About();
+                displayAbout();
                 break;
             case 5:
-                PrivacyPolicy(); 
+                displayPrivacyPolicy(); 
                 break;
             case 6:
-                Agreement();
+                displayAgreement();
                 break;
             case 0:
                 break;
@@ -49,7 +50,7 @@ public class Display {
         }
     }
 
-    public static void Login() {
+    public static void displayLogin() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("########################################################");
         System.out.println("#                                                      #");
@@ -68,13 +69,13 @@ public class Display {
         String loginPassword = scan.nextLine();
 
         if(loginUsername.equals(user.username) && loginPassword.equals(user.password)) {
-            Menu();
+            mainMenu.displayMenu();
         } else {
-            Relogin();
+            displayRelogin();
         }
         
     }
-    public static void Relogin() {
+    public static void displayRelogin() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("########################################################");
         System.out.println("#                                                      #");
@@ -93,13 +94,13 @@ public class Display {
         String loginPassword = scan.nextLine();
 
         if(loginUsername.equals(user.username) && loginPassword.equals(user.password)) {
-            Menu();
+            mainMenu.displayMenu();
         } else {
-            Relogin();
+            displayRelogin();
         }
     }
 
-    public static void Signup() {
+    public static void displaySignup() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("########################################################");
         System.out.println("#                                                      #");
@@ -156,27 +157,11 @@ public class Display {
         System.out.print("Current Address: ");
         user.currentAddress = scan.nextLine();
         
-        Menu();
+        mainMenu.displayMenu();
     }
 
-    public static void Menu() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("########################################################");
-        System.out.println("#                                                      #");
-        System.out.printf("#        %-46s","Welcome" + " " + user.fName + " " + user.lName + "!");
-        System.out.println("#");
-        System.out.println("#                                                      #");
-        System.out.println("#        (1) My Personal Informations                  #");
-        System.out.println("#        (2) Contacts                                  #");
-        System.out.println("#        (3) Events/Reminders                          #");
-        System.out.println("#        (4) To-do list                                #");
-        System.out.println("#        (5) Notes                                     #");
-        System.out.println("#        (0) Log out                                   #");
-        System.out.println("#                                                      #");
-        System.out.println("########################################################");
-    }
 
-    public static void Contacts() {
+    public static void displayContacts() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("########################################################");
         System.out.println("#                                                      #");
@@ -193,12 +178,12 @@ public class Display {
         int myOption = scan.nextInt();
 
         if(myOption == 0) {
-            Menu();
+            mainMenu.displayMenu();
         }
         System.out.println("#                                                      #");
         System.out.println("########################################################");
     }
-    public static void About() {
+    public static void displayAbout() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("########################################################");
         System.out.println("#                                                      #");
@@ -216,11 +201,11 @@ public class Display {
         int myOption = scan.nextInt();
 
         if(myOption == 0) {
-            Menu();
+            mainMenu.displayMenu();
         }
     }
 
-    public static void PrivacyPolicy() {
+    public static void displayPrivacyPolicy() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("########################################################");
         System.out.println("#                                                      #");
@@ -236,11 +221,11 @@ public class Display {
         int myOption = scan.nextInt();
 
         if(myOption == 0) {
-            Menu();
+            mainMenu.displayMenu();
         }
     }
 
-    public static void Agreement() {
+    public static void displayAgreement() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("########################################################");
         System.out.println("#                                                      #");
@@ -256,7 +241,7 @@ public class Display {
         int myOption = scan.nextInt();
 
         if(myOption == 0) {
-            Welcome();
+            displayWelcome();
         }
     }
 }
