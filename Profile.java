@@ -1,70 +1,19 @@
+import java.util.ArrayList;
+
 public class Profile {
-    String username;
-    String password;                              
-    String fName;                               
-    String mName;                                         
-    String lName;
-    int age;
-    String phoneNum;
-    String teleNum;
-    String email;
-    char gender;
-    String maritalStatus;                                 
-    String birthday;                                 
-    String birthplace;
-    String occupation;
-    String permanentAddress;
-    String currentAddress;
-
-    public Profile (
-                String username,
-                String password,
-                String fName,
-                String mName,
-                String lName,
-                int age,
-                String phoneNum,
-                String teleNum,
-                String email,
-                char gender,
-                String maritalStatus,
-                String birthday,
-                String birthplace,
-                String occupation,
-                String permanentAddress,
-                String currentAddress
-            ) {
-        this.username = username;
-        this.password = password;
-        this.fName = fName;
-        this.mName = mName;
-        this.lName = lName;
-        this.age = age;
-        this.phoneNum = phoneNum;
-        this.teleNum = teleNum;
-        this.email = email;
-        this.gender = gender;
-        this.maritalStatus = maritalStatus;
-        this.birthday = birthday;
-        this.birthplace = birthplace;
-        this.occupation = occupation;
-        this.permanentAddress = permanentAddress;
-        this.currentAddress = currentAddress;
-    }
-
-
-    /*String username = "asiong1234";
-    String password = "h@r1ngT0nd0";
+    String username = "admin";
+    String password = "password";
     String fName = "Asiong";
     String mName = "Cruz";
     String lName = "Salonga";
     int age = 43;
-    int contactNum = "09053112458";
-    char gender = 'M';
-    String maritalStatus = "Married";
-    String birthday = "06/17/87";
+    String emails[] = {"asiong.salonga@gmai.com", "hariakongtondo@yahoo.com", null, null, null};
+    String contactNums[] = {"09987654321", "091231231213", null, null, null};
+    char gender = 'm';
+    String maritalStatus = "married";
+    String birthday = "06/17/1987";
     String birthplace = "Tondo, Manila";
     String occupation = "Policeman";
     String permanentAddress = "143 Kathniel St., Brgy. Hiwalayan, Tondo, Manila";
-    String currentAddress = "123 Broken St., Brgy Inuman, Tanauan, Batangas";*/
+    String currentAddress = "123 Broken St., Brgy Inuman, Tanauan, Batangas";
 }

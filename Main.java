@@ -7,10 +7,6 @@ public class Main {
     
     public static void main(String[] args) {
         display.Welcome();
-        System.out.print("\nEnter your option: ");
-        int welcomeOption = scan.nextInt();
-        if(welcomeOption == 1) {
-            display.Login();
-        }
+        
     }
 }
