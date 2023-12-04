@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Profile {
     String username = "admin";
     String password = "password";

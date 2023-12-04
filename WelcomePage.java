@@ -178,7 +178,7 @@ public class WelcomePage {
         int myOption = scan.nextInt();
 
         if(myOption == 0) {
-            mainMenu.displayMenu();
+            displayWelcome();
         }
         System.out.println("#                                                      #");
         System.out.println("########################################################");
@@ -201,7 +201,7 @@ public class WelcomePage {
         int myOption = scan.nextInt();
 
         if(myOption == 0) {
-            mainMenu.displayMenu();
+            displayWelcome();
         }
     }
 
@@ -221,7 +221,7 @@ public class WelcomePage {
         int myOption = scan.nextInt();
 
         if(myOption == 0) {
-            mainMenu.displayMenu();
+            displayWelcome();
         }
     }
 
