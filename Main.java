@@ -7,22 +7,22 @@ public class Main {
 
         //Built-in profile
         Profile ronald = new Profile(
-             "ronald2117",
-             "ronaldthebest",
-             "Ronald",
-             "N/A",
-             "Abel",
-             22,
-             234033,
-             2489999,
-             "ahdjddjdj@jfjrjr.com",
+             "haringtondo",
+             "bestbytest",
+             "Asiong",
+             "Rotonda",
+             "Salonga",
+             32,
+             09876543212,
+             123-567-656,
+             "hari_ng_tondo@gmail.com",
              'M',
-             "Single",
-             "06/17/01",
+             "Married",
+             "06/17/81",
              "Tondo, Manila",
-             "student",
-             "565 Zone 7, Brgy. Patayan, Tanauan City, Batangas",
-             "Same as permanent Address"
+             "Police",
+             "565 Zone 7, Brgy. Patayan, Tondo, Manila",
+             "123 Zone 8, Brgy. Walasamapa, Tondo, Manila, "
         );
         
         display.Welcome();
