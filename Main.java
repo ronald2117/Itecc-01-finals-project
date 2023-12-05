@@ -4,7 +4,7 @@ public class Main {
     static Scanner scan = new Scanner(System.in);
     //Built-in profile
     public static String username = "admin";
-    public static String password = "password";
+    public static String password = "pass";
     public static String fName = "Asiong";
     public static String mName = "Cruz";
     public static String lName = "Salonga";
@@ -19,7 +19,7 @@ public class Main {
     public static String occupation = "Policeman";
     public static String permanentAddress = "143 Kathniel St., Brgy. Hiwalayan, Tondo, Manila";
     public static String currentAddress = "123 Broken St., Brgy Inuman, Tanauan, Batangas";
-    
+
     public static void displayWelcome() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("#################################################################################");
@@ -191,10 +191,13 @@ public class Main {
         birthday = scan.nextLine();
         System.out.print("Birthplace: ");
         birthplace = scan.nextLine();
-        System.out.print("Occupation: ");
+        System.out.print("Occupation: ");0
         occupation = scan.nextLine();
         
         System.out.println("Please enter your maximum of 5 emails. \n Enter \"n/a\" if you don't want to add another email.");
+        for(String email: emails) {
+            email = "n/a";  //reset
+        }
         for(int i = 0, count = 1; i < emails.length; i++) {
             System.out.printf("Enter email #%d: ", count);
             emails[i] = scan.nextLine();
@@ -205,6 +208,9 @@ public class Main {
         }
 
         System.out.println("Please enter your maximum of 5 contact numbers. \n Enter \"n/a\" if you don't want to add another contact number.");
+        for(String contact: contactNums) {
+            contact = "n/a";  //reset
+        }
         for(int i = 0, count = 1; i < contactNums.length; i++) {
             System.out.printf("Enter contact number #%d: ", count);
             contactNums[i] = scan.nextLine();
@@ -365,8 +371,167 @@ public class Main {
             }
         }
         System.out.println("#                                                                              #");
+        System.out.println("#                                               (1) Edit Mode   (0) Exit       #");
+        System.out.println("#                                                                              #");
         System.out.println("################################################################################");
+
+        System.out.println("Enter you option");
+        int option = scan.nextInt();
+        switch(option) {
+            case 1:
+                displayEditInfoPage();
+                break;
+            case 0:
+                displayMenu();
+                break;
+            default:
+                break;
+        }
     }
+
+    static void displayEditInfoPage() {
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("################################################################################");
+        System.out.println("#                                                                              #");
+        System.out.println("#   Edit Mode:                                                                 #");
+        System.out.println("#                                                                              #");
+        System.out.printf("#   (1) %-71s","First Name: " + fName);
+        System.out.println("#");
+        System.out.printf("#   (2) %-71s","Middle Name: "+ mName);
+        System.out.println("#");
+        System.out.printf("#   (3) %-71s","Last Name: " + lName);
+        System.out.println("#");
+        System.out.printf("#   (4) %-71s","Age: " + age);
+        System.out.println("#");
+        System.out.printf("#   (5) %-71s","Gender: " + gender);
+        System.out.println("#");
+        System.out.printf("#   (6) %-71s","Marital Status: " + maritalStatus);
+        System.out.println("#");
+        System.out.printf("#   (7) %-71s","Religion: " + religion);
+        System.out.println("#");
+        System.out.printf("#   (8) %-71s","Birthday: " + birthday);
+        System.out.println("#");
+        System.out.printf("#   (9) %-71s","Birthplace: " + birthplace);
+        System.out.println("#");
+        System.out.printf("#   (10) %-70s","Occupation: " + occupation);
+        System.out.println("#");
+        System.out.printf("#   (11) %-70s","Permanent Address: " + permanentAddress);
+        System.out.println("#");
+        System.out.printf("#   (12) %-70s","Current Address: " + currentAddress);
+        System.out.println("#");
+
+        System.out.printf("#   (13) %-70s","Emails: ");
+        System.out.println("#");
+        int emailCount = 1;
+        for(int i = 0; i < emails.length; i++) {           
+            if(emails[i].equals("n/a")){
+                continue;
+            } else {
+                System.out.printf("#      #%d: %-68s", emailCount, emails[i]);
+                System.out.println("#");
+                emailCount += 1; 
+            }
+        }
+
+        System.out.printf("#   (14) %-70s","Contact Numbers: ");
+        System.out.println("#");
+
+        int contactCount = 1;
+        for(int i = 0; i < contactNums.length; i++) {           
+            if(contactNums[i].equals("n/a")){
+                continue;
+            } else {
+                System.out.printf("#      #%d: %-68s", contactCount, contactNums[i]);
+                System.out.println("#");
+                contactCount += 1; 
+            }
+        }
+        System.out.println("#                                                                              #");
+        System.out.println("################################################################################");
+
+        System.out.println("Enter your option: ");
+        int option = scan.nextInt();
+        scan.nextLine();
+        switch (option) {
+            case 1:
+                System.out.print("New: ");
+                fName = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 2:
+                System.out.print("New: ");
+                mName = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 3:
+                System.out.print("New: ");
+                lName = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 4:
+                System.out.print("New: ");
+                age = scan.nextInt();
+                displayInfoPage();
+                break;
+            case 5:
+                System.out.print("New: ");
+                gender = scan.next().charAt(0);
+                displayInfoPage();
+                break;
+            case 6:
+                System.out.print("New: ");
+                maritalStatus = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 7:
+                System.out.print("New: ");
+                religion = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 8:
+                System.out.print("New: ");
+                birthday = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 9:
+                System.out.print("New: ");
+                birthplace = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 10:
+                System.out.print("New: ");
+                occupation = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 11:
+                System.out.print("New: ");
+                permanentAddress = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 12:
+                System.out.print("New: ");
+                currentAddress = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 13:
+                System.out.print("Email #: ");
+                int emailIndex = 1 - scan.nextInt();
+                System.out.print("New: ");
+                emails[emailIndex] = scan.nextLine();
+                displayInfoPage();
+                break;
+            case 14:
+                System.out.print("Contact #: ");
+                int contIndex = 1 - scan.nextInt();
+                System.out.print("New: ");
+                emails[contIndex] = scan.nextLine();
+                displayInfoPage();
+                break;
+            default:
+                break;  
+        }       
+    }
+
     public static void main(String[] args) {
         displayWelcome();
     }
