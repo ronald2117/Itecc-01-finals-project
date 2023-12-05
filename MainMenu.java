@@ -56,17 +56,50 @@ public class MainMenu {
         System.out.println("#");
         System.out.printf("#   %-75s","Age: " + user.age);
         System.out.println("#");
+        System.out.printf("#   %-75s","Emails: ");
+        System.out.println("#");
         
-        for(int i = 0; i < user.emails.length; i++) {
+        int emailCount = 1;
+        for(int i = 0; i < user.emails.length; i++) {           
             if(user.emails[i].equals("n/a")){
                 continue;
             } else {
-                System.out.printf("#   %-75s","Email: " + user.age);
+                System.out.printf("#    #%d: %-70s", emailCount, user.emails[i]);
                 System.out.println("#");
+                emailCount += 1; 
             }
         }
 
-        System.out.println("#                                                                                               #");
-        System.out.println("#################################################################################################");
+        System.out.printf("#   %-75s","Contact Numbers: ");
+        System.out.println("#");
+
+        int contactCount = 1;
+        for(int i = 0; i < user.contactNums.length; i++) {           
+            if(user.contactNums[i].equals("n/a")){
+                continue;
+            } else {
+                System.out.printf("#    #%d: %-70s", contactCount, user.contactNums[i]);
+                System.out.println("#");
+                contactCount += 1; 
+            }
+        }
+
+        System.out.printf("#   %-75s","Gender: " + user.gender);
+        System.out.println("#");
+        System.out.printf("#   %-75s","Marital Status: " + user.maritalStatus);
+        System.out.println("#");
+        System.out.printf("#   %-75s","Birthday: " + user.birthday);
+        System.out.println("#");
+        System.out.printf("#   %-75s","Birthplace: " + user.birthplace);
+        System.out.println("#");
+        System.out.printf("#   %-75s","Occupation: " + user.occupation);
+        System.out.println("#");
+        System.out.printf("#   %-75s","Permanent Address: " + user.permanentAddress);
+        System.out.println("#");
+        System.out.printf("#   %-75s","Current Address: " + user.currentAddress);
+        System.out.println("#");
+
+        System.out.println("#                                                                              #");
+        System.out.println("################################################################################");
     }
 }
