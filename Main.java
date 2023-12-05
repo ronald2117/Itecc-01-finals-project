@@ -1,26 +1,31 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.HashMap;
 
 public class Main {
     static Scanner scan = new Scanner(System.in);
     //Built-in profile
-    public static String username = "admin";
-    public static String password = "pass";
-    public static String fName = "Asiong";
-    public static String mName = "Cruz";
-    public static String lName = "Salonga";
-    public static int age = 43;
-    public static String religion = "Roman Catholic";
-    public static String emails[] = {"asiong.salonga@gmai.com", "hariakongtondo@yahoo.com", "n/a", "n/a", "n/a"};
-    public static String contactNums[] = {"09987654321", "091231231213", "n/a", "n/a", "n/a"};
-    public static char gender = 'm';
-    public static String maritalStatus = "married";
-    public static String birthday = "06/17/1987";
-    public static String birthplace = "Tondo, Manila";
-    public static String occupation = "Policeman";
-    public static String permanentAddress = "143 Kathniel St., Brgy. Hiwalayan, Tondo, Manila";
-    public static String currentAddress = "123 Broken St., Brgy Inuman, Tanauan, Batangas";
+    static String username = "admin";
+    static String password = "pass";
+    static String fName = "Asiong";
+    static String mName = "Cruz";
+    static String lName = "Salonga";
+    static int age = 43;
+    static String religion = "Roman Catholic";
+    static String emails[] = {"asiong.salonga@gmai.com", "hariakongtondo@yahoo.com", "n/a", "n/a", "n/a"};
+    static String contactNums[] = {"09987654321", "091231231213", "n/a", "n/a", "n/a"};
+    static char gender = 'm';
+    static String maritalStatus = "married";
+    static String birthday = "06/17/1987";
+    static String birthplace = "Tondo, Manila";
+    static String occupation = "Policeman";
+    static String permanentAddress = "143 Kathniel St., Brgy. Hiwalayan, Tondo, Manila";
+    static String currentAddress = "123 Broken St., Brgy Inuman, Tanauan, Batangas";
+
+    //Contacts
+    static HashMap <String, String> contacts = new HashMap<String, String>();
 
     public static void displayWelcome() {
+        
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("#################################################################################");
         System.out.println("#                                                                               #");
@@ -73,7 +78,7 @@ public class Main {
         System.out.println("#");
         System.out.println("#                                                                              #");
         System.out.println("#        (1) My Personal Informations                                          #");
-        System.out.println("#        (2) Contacts                                                          #");
+        System.out.println("#        (2) Phone Book                                                        #");
         System.out.println("#        (3) Events/Reminders                                                  #");
         System.out.println("#        (4) To-do list                                                        #");
         System.out.println("#        (5) Notes                                                             #");
@@ -89,6 +94,7 @@ public class Main {
                 displayInfoPage();
                 break;
             case 2:
+                displayContactList();
                 break;
             case 3:
                 break;
@@ -191,12 +197,12 @@ public class Main {
         birthday = scan.nextLine();
         System.out.print("Birthplace: ");
         birthplace = scan.nextLine();
-        System.out.print("Occupation: ");0
+        System.out.print("Occupation: ");
         occupation = scan.nextLine();
         
         System.out.println("Please enter your maximum of 5 emails. \n Enter \"n/a\" if you don't want to add another email.");
-        for(String email: emails) {
-            email = "n/a";  //reset
+        for(int i = 0; i < emails.length; i++) {
+            emails[i] = "n/a";  //reset
         }
         for(int i = 0, count = 1; i < emails.length; i++) {
             System.out.printf("Enter email #%d: ", count);
@@ -208,8 +214,8 @@ public class Main {
         }
 
         System.out.println("Please enter your maximum of 5 contact numbers. \n Enter \"n/a\" if you don't want to add another contact number.");
-        for(String contact: contactNums) {
-            contact = "n/a";  //reset
+        for(int i = 0; i < contactNums.length; i++) {
+            contactNums[i] = "n/a";  //reset
         }
         for(int i = 0, count = 1; i < contactNums.length; i++) {
             System.out.printf("Enter contact number #%d: ", count);
@@ -393,7 +399,7 @@ public class Main {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
-        System.out.println("#   Edit Mode:                                                                 #");
+        System.out.println("#    Edit Mode:                                                                #");
         System.out.println("#                                                                              #");
         System.out.printf("#   (1) %-71s","First Name: " + fName);
         System.out.println("#");
@@ -532,6 +538,52 @@ public class Main {
         }       
     }
 
+    public static void displayContactList(){
+        for(String contactss: contactNums) {
+            contacts.put("My Number", contactss);
+        }
+        
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("################################################################################");
+        System.out.println("#                                                                              #");
+        System.out.println("#    My Contact List:                                                          #");
+        System.out.println("#                                                                              #");
+        System.out.println("#    Name:                         Phone Number:                               #");
+        for(String i: contacts.keySet()) {
+            System.out.printf("#    %-29s %-44s", i, contacts.get(i));
+            System.out.println("#");
+        }
+        System.out.println("#                                                                              #");
+        System.out.println("#                                        (1) Add   (2) Remove   (0) Exit       #");
+        System.out.println("#                                                                              #");
+        System.out.println("################################################################################");
+
+        System.out.println("Enter your option: ");
+        int option = scan.nextInt();
+        scan.nextLine();
+        switch(option) {
+            case 1:
+                System.out.print("Contact name: ");
+                String name = scan.nextLine();
+                System.out.print("Phone number: ");
+                String pnum = scan.nextLine();
+                contacts.put(name, pnum);
+                displayContactList();
+                break;
+            case 2:
+                System.out.print("Contact name to remove: ");
+                String toRemove = scan.nextLine();
+                contacts.remove(toRemove);
+                displayContactList();
+                break;
+            case 0:
+                displayMenu();
+                break;
+            default:
+                displayContactList();
+                break;
+        }
+    }
     public static void main(String[] args) {
         displayWelcome();
     }
