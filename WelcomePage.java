@@ -7,21 +7,21 @@ public class WelcomePage {
 
     public static void displayWelcome() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("########################################################");
-        System.out.println("#                                                      #");
-        System.out.println("#              Welcome to Project A.B.E.L              #");
-        System.out.println("#        Personal Information Management System        #");
-        System.out.println("#                  Safe and Reliable                   #");
-        System.out.println("#                                                      #");
-        System.out.println("#        (1) Log in                                    #");
-        System.out.println("#        (2) Sign up                                   #");
-        System.out.println("#        (3) Contacts                                  #");
-        System.out.println("#        (4) About the Project                         #");
-        System.out.println("#        (5) Privacy Policy                            #");
-        System.out.println("#        (6) Terms and Agreements                      #");
-        System.out.println("#        (0) Exit                                      #");
-        System.out.println("#                                                      #");
-        System.out.println("########################################################");
+        System.out.println("#################################################################################");
+        System.out.println("#                                                                               #");
+        System.out.println("#                            Welcome to Project A.B.E.L                         #");
+        System.out.println("#                       Personal Information Management System                  #");
+        System.out.println("#                                Safe and Reliable                              #");
+        System.out.println("#                                                                               #");
+        System.out.println("#                (1) Log in                                                     #");
+        System.out.println("#                (2) Sign up                                                    #");
+        System.out.println("#                (3) Contacts                                                   #");
+        System.out.println("#                (4) About the Project                                          #");
+        System.out.println("#                (5) Privacy Policy                                             #");
+        System.out.println("#                (6) Terms and Agreements                                       #");
+        System.out.println("#                (0) Exit                                                       #");
+        System.out.println("#                                                                               #");
+        System.out.println("#################################################################################");
         System.out.print("\nEnter your option: ");
         int welcomeOption = scan.nextInt();
         switch(welcomeOption) {
@@ -52,16 +52,16 @@ public class WelcomePage {
 
     public static void displayLogin() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("########################################################");
-        System.out.println("#                                                      #");
-        System.out.println("#              Welcome to Project A.B.E.L              #");
-        System.out.println("#        Personal Information Management System        #");
-        System.out.println("#                  Safe and Reliable                   #");
-        System.out.println("#                                                      #");
-        System.out.println("#                                                      #");
-        System.out.println("#      Please Enter Your Username and Password  :)     #");
-        System.out.println("#                                                      #");
-        System.out.println("########################################################");
+        System.out.println("#################################################################################");
+        System.out.println("#                                                                               #");
+        System.out.println("#                          Welcome to Project A.B.E.L                           #");
+        System.out.println("#                   Personal Information Management System                      #");
+        System.out.println("#                             Safe and Reliable                                 #");
+        System.out.println("#                                                                               #");
+        System.out.println("#                                                                               #");
+        System.out.println("#                    Please Enter Your Username and Password  :)                #");
+        System.out.println("#                                                                               #");
+        System.out.println("#################################################################################");
         scan.nextLine();
         System.out.printf("Enter your username: ");
         String loginUsername = scan.nextLine();
@@ -77,16 +77,16 @@ public class WelcomePage {
     }
     public static void displayRelogin() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("########################################################");
-        System.out.println("#                                                      #");
-        System.out.println("#              Welcome to Project A.B.E.L              #");
-        System.out.println("#        Personal Information Management System        #");
-        System.out.println("#                  Safe and Reliable                   #");
-        System.out.println("#                                                      #");
-        System.out.println("#                                                      #");
-        System.out.println("#    Wrong Username or Password, Please try again  :(  #");
-        System.out.println("#                                                      #");
-        System.out.println("########################################################");
+        System.out.println("#################################################################################");
+        System.out.println("#                                                                               #");
+        System.out.println("#                          Welcome to Project A.B.E.L                           #");
+        System.out.println("#                   Personal Information Management System                      #");
+        System.out.println("#                             Safe and Reliable                                 #");
+        System.out.println("#                                                                               #");
+        System.out.println("#                                                                               #");
+        System.out.println("#               Wrong Username or Password, Please Try Again  :)                #");
+        System.out.println("#                                                                               #");
+        System.out.println("#################################################################################");
 
         System.out.printf("Enter your username: ");
         String loginUsername = scan.nextLine();
@@ -102,17 +102,16 @@ public class WelcomePage {
 
     public static void displaySignup() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("########################################################");
-        System.out.println("#                                                      #");
-        System.out.println("#              Welcome to Project A.B.E.L              #");
-        System.out.println("#        Personal Information Management System        #");
-        System.out.println("#                  Safe and Reliable                   #");
-        System.out.println("#                                                      #");
-        System.out.println("#        Filling out this form means that you          #");
-        System.out.println("#   Accept our Privacy Policy and Terms and Agreement  #");
-        System.out.println("#                                                      #");
-        System.out.println("########################################################");
-
+        System.out.println("#################################################################################");
+        System.out.println("#                                                                               #");
+        System.out.println("#                          Welcome to Project A.B.E.L                           #");
+        System.out.println("#                   Personal Information Management System                      #");
+        System.out.println("#                             Safe and Reliable                                 #");
+        System.out.println("#                                                                               #");
+        System.out.println("#                Filling out this form means that you                           #");
+        System.out.println("#            Accept our Privacy Policy and Terms and Agreement.                 #");
+        System.out.println("#                                                                               #");
+        System.out.println("#################################################################################");
         System.out.print("Username: ");
         scan.nextLine();
         user.username = scan.nextLine();
@@ -163,16 +162,16 @@ public class WelcomePage {
 
     public static void displayContacts() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("########################################################");
-        System.out.println("#                                                      #");
-        System.out.println("#       Contact me at:                                 #");
-        System.out.println("#       Email: abel.ronald2117@gmail.com               #");
-        System.out.println("#       Facebook: https://www.facebook.com/ronald1617  #");
-        System.out.println("#       Github: https://github.com/ronald2117          #");
-        System.out.println("#                                                      #");
-        System.out.println("#       (0) Exit                                       #");
-        System.out.println("#                                                      #");
-        System.out.println("########################################################");
+        System.out.println("#################################################################################");
+        System.out.println("#                                                                               #");
+        System.out.println("#       Contact me at:                                                          #");
+        System.out.println("#       Email: abel.ronald2117@gmail.com                                        #");
+        System.out.println("#       Facebook: https://www.facebook.com/ronald1617                           #");
+        System.out.println("#       Github: https://github.com/ronald2117                                   #");
+        System.out.println("#                                                                               #");
+        System.out.println("#       (0) Exit                                                                #");
+        System.out.println("#                                                                               #");
+        System.out.println("#################################################################################");
 
         System.out.print("Enter your option: ");
         int myOption = scan.nextInt();
@@ -180,22 +179,20 @@ public class WelcomePage {
         if(myOption == 0) {
             displayWelcome();
         }
-        System.out.println("#                                                      #");
-        System.out.println("########################################################");
     }
     public static void displayAbout() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("########################################################");
-        System.out.println("#                                                      #");
-        System.out.println("#        Project A.B.E.L., by Ronald Abel              #");
-        System.out.println("#    is a Personal Information Management System       #");
-        System.out.println("#       created as a final project for ITECC01         #");
-        System.out.println("#                                                      #");
-        System.out.println("#           Hope you like it! :)                       #");
-        System.out.println("#                                                      #");
-        System.out.println("#       (0) Exit                                       #");
-        System.out.println("#                                                      #");
-        System.out.println("########################################################");
+        System.out.println("################################################################################");
+        System.out.println("#                                                                              #");
+        System.out.println("#                     Project A.B.E.L., by Ronald Abel                         #");
+        System.out.println("#               is a Personal Information Management System                    #");
+        System.out.println("#                 created as a final project for ITECC01                       #");
+        System.out.println("#                                                                              #");
+        System.out.println("#                         Hope you like it! :)                                 #");
+        System.out.println("#                                                                              #");
+        System.out.println("#       (0) Exit                                                               #");
+        System.out.println("#                                                                              #");
+        System.out.println("################################################################################");
 
         System.out.print("Enter your option: ");
         int myOption = scan.nextInt();
@@ -207,15 +204,15 @@ public class WelcomePage {
 
     public static void displayPrivacyPolicy() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("########################################################");
-        System.out.println("#                                                      #");
-        System.out.println("#        Read our Privacy Policy At:                   #");
-        System.out.println("#                                                      #");
-        System.out.println("#        https://bit.ly/abel-privacy-policy            #");
-        System.out.println("#                                                      #");
-        System.out.println("#        (0) Exit                                      #");
-        System.out.println("#                                                      #");
-        System.out.println("########################################################");
+        System.out.println("################################################################################");
+        System.out.println("#                                                                              #");
+        System.out.println("#        Read our Privacy Policy At:                                           #");
+        System.out.println("#                                                                              #");
+        System.out.println("#        https://bit.ly/abel-privacy-policy                                    #");
+        System.out.println("#                                                                              #");
+        System.out.println("#       (0) Exit                                                               #");
+        System.out.println("#                                                                              #");
+        System.out.println("################################################################################");
 
         System.out.print("Enter your option: ");
         int myOption = scan.nextInt();
@@ -227,15 +224,15 @@ public class WelcomePage {
 
     public static void displayAgreement() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("########################################################");
-        System.out.println("#                                                      #");
-        System.out.println("#        Read our Terms and Agreement At:              #");
-        System.out.println("#                                                      #");
-        System.out.println("#        https://bit.ly/terms-and-agreement            #");
-        System.out.println("#                                                      #");
-        System.out.println("#        (0) Exit                                      #");
-        System.out.println("#                                                      #");
-        System.out.println("########################################################");
+        System.out.println("################################################################################");
+        System.out.println("#                                                                              #");
+        System.out.println("#        Read our Terms and Agreement At:                                      #");
+        System.out.println("#                                                                              #");
+        System.out.println("#        https://bit.ly/terms-and-agreement                                    #");
+        System.out.println("#                                                                              #");
+        System.out.println("#        (0) Exit                                                              #");
+        System.out.println("#                                                                              #");
+        System.out.println("################################################################################");
 
         System.out.print("Enter your option: ");
         int myOption = scan.nextInt();
