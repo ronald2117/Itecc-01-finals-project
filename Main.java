@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
@@ -12,7 +13,7 @@ public class Main {
     static int age = 43;
     static String religion = "Roman Catholic";
     static String emails[] = {"asiong.salonga@gmai.com", "hariakongtondo@yahoo.com", "n/a", "n/a", "n/a"};
-    static String contactNums[] = {"09987654321", "091231231213", "n/a", "n/a", "n/a"};
+    static String contactNums[] = {"09987654321", "091231231213", "n/a", "n/a", "123"};
     static char gender = 'm';
     static String maritalStatus = "married";
     static String birthday = "06/17/1987";
@@ -24,6 +25,9 @@ public class Main {
     //Contacts
     static HashMap <String, String> contacts = new HashMap<String, String>();
 
+    //Reminders
+    static ArrayList<ArrayList<String>> reminders = new ArrayList<>();
+    
     public static void displayWelcome() {
         
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -79,7 +83,7 @@ public class Main {
         System.out.println("#                                                                              #");
         System.out.println("#        (1) My Personal Informations                                          #");
         System.out.println("#        (2) Phone Book                                                        #");
-        System.out.println("#        (3) Events/Reminders                                                  #");
+        System.out.println("#        (3) Reminders                                                         #");
         System.out.println("#        (4) To-do list                                                        #");
         System.out.println("#        (5) Notes                                                             #");
         System.out.println("#        (0) Log out                                                           #");
@@ -97,6 +101,7 @@ public class Main {
                 displayContactList();
                 break;
             case 3:
+            displayReminders();
                 break;
             case 4:
                 break;
@@ -539,8 +544,9 @@ public class Main {
     }
 
     public static void displayContactList(){
-        for(String contactss: contactNums) {
-            contacts.put("My Number", contactss);
+        for(int i = 0; i < contactNums.length; i++) {
+            if(contactNums[i].equals("n/a")) continue;
+            contacts.put("My Number" + (i + 1), contactNums[i]);
         }
         
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -549,16 +555,18 @@ public class Main {
         System.out.println("#    My Contact List:                                                          #");
         System.out.println("#                                                                              #");
         System.out.println("#    Name:                         Phone Number:                               #");
+
         for(String i: contacts.keySet()) {
-            System.out.printf("#    %-29s %-44s", i, contacts.get(i));
+            System.out.printf("#     %-29s %-43s", i, contacts.get(i));
             System.out.println("#");
         }
+
         System.out.println("#                                                                              #");
         System.out.println("#                                        (1) Add   (2) Remove   (0) Exit       #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
-        System.out.println("Enter your option: ");
+        System.out.print("Enter your option: ");
         int option = scan.nextInt();
         scan.nextLine();
         switch(option) {
@@ -581,6 +589,204 @@ public class Main {
                 break;
             default:
                 displayContactList();
+                break;
+        }
+    }
+
+    public static void displayReminders(){
+        reminders.add(new ArrayList<>());
+        reminders.get(0).add("Itecc01 Proj Submission");
+        reminders.get(0).add("12/11/2023");
+        reminders.get(0).add("10:30 AM");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("################################################################################");
+        System.out.println("#                                                                              #");
+        System.out.println("#      My Reminders:                                                           #");
+        System.out.println("#                                                                              #");
+        System.out.println("#         Name:                  Date:                  Time:                  #");
+
+        int count = 1;
+        for(ArrayList<String> row: reminders) {
+            if(!row.isEmpty()){
+                String name = row.get(0);
+                if(name.length() > 19) {
+                    name = name.substring(0, 19) + "...";
+                }
+
+            System.out.printf("#      (%d) %-22s %-22s %-22s",count, name, row.get(1), row.get(2));
+            System.out.println("#");
+            count++;
+            }
+        }
+        
+        System.out.println("#                                                                              #");
+        System.out.println("#                                        (1) Add   (2) Remove   (0) Exit       #");
+        System.out.println("#                                                                              #");
+        System.out.println("################################################################################");
+
+        //get last index
+        int lastIndex = reminders.size();
+
+        System.out.print("Enter your option: ");
+        int option = scan.nextInt();
+        scan.nextLine();
+        switch(option) {
+            case 1:
+                System.out.print("Reminder name: ");
+                String name = scan.nextLine();
+                System.out.print("Date(MM/DD/YY): ");
+                String date = scan.nextLine();
+                System.out.print("Time: ");
+                String time = scan.nextLine();
+                reminders.add(new ArrayList<>());
+                reminders.get(lastIndex).add(name);
+                reminders.get(lastIndex).add(date);
+                reminders.get(lastIndex).add(time);
+                displayReminders();
+                break;
+            case 2:
+                System.out.print("Index of reminder to remove: ");
+                int toRemove = scan.nextInt();
+                reminders.remove(toRemove - 1);
+                displayReminders();
+                break;
+            case 0:
+                displayMenu();
+                break;
+            default:
+                displayReminders();
+                break;
+        }
+    }
+
+    public static void displayTodoList(){
+        reminders.add(new ArrayList<>());
+        reminders.get(0).add("Itecc01 Proj Submission");
+        reminders.get(0).add("12/11/2023");
+        reminders.get(0).add("10:30 AM");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("################################################################################");
+        System.out.println("#                                                                              #");
+        System.out.println("#      My Reminders:                                                           #");
+        System.out.println("#                                                                              #");
+        System.out.println("#         Name:                  Date:                  Time:                  #");
+
+        int count = 1;
+        for(ArrayList<String> row: reminders) {
+            if(!row.isEmpty()){
+                String name = row.get(0);
+                if(name.length() > 19) {
+                    name = name.substring(0, 19) + "...";
+                }
+
+            System.out.printf("#      (%d) %-22s %-22s %-22s",count, name, row.get(1), row.get(2));
+            System.out.println("#");
+            count++;
+            }
+        }
+        
+        System.out.println("#                                                                              #");
+        System.out.println("#                                        (1) Add   (2) Remove   (0) Exit       #");
+        System.out.println("#                                                                              #");
+        System.out.println("################################################################################");
+
+        //get last index
+        int lastIndex = reminders.size();
+
+        System.out.print("Enter your option: ");
+        int option = scan.nextInt();
+        scan.nextLine();
+        switch(option) {
+            case 1:
+                System.out.print("Reminder name: ");
+                String name = scan.nextLine();
+                System.out.print("Date(MM/DD/YY): ");
+                String date = scan.nextLine();
+                System.out.print("Time: ");
+                String time = scan.nextLine();
+                reminders.add(new ArrayList<>());
+                reminders.get(lastIndex).add(name);
+                reminders.get(lastIndex).add(date);
+                reminders.get(lastIndex).add(time);
+                displayReminders();
+                break;
+            case 2:
+                System.out.print("Index of reminder to remove: ");
+                int toRemove = scan.nextInt();
+                reminders.remove(toRemove - 1);
+                displayReminders();
+                break;
+            case 0:
+                displayMenu();
+                break;
+            default:
+                displayReminders();
+                break;
+        }
+    }
+
+    public static void displayNotes(){
+        reminders.add(new ArrayList<>());
+        reminders.get(0).add("Itecc01 Proj Submission");
+        reminders.get(0).add("12/11/2023");
+        reminders.get(0).add("10:30 AM");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("################################################################################");
+        System.out.println("#                                                                              #");
+        System.out.println("#      My Reminders:                                                           #");
+        System.out.println("#                                                                              #");
+        System.out.println("#         Name:                  Date:                  Time:                  #");
+
+        int count = 1;
+        for(ArrayList<String> row: reminders) {
+            if(!row.isEmpty()){
+                String name = row.get(0);
+                if(name.length() > 19) {
+                    name = name.substring(0, 19) + "...";
+                }
+
+            System.out.printf("#      (%d) %-22s %-22s %-22s",count, name, row.get(1), row.get(2));
+            System.out.println("#");
+            count++;
+            }
+        }
+        
+        System.out.println("#                                                                              #");
+        System.out.println("#                                        (1) Add   (2) Remove   (0) Exit       #");
+        System.out.println("#                                                                              #");
+        System.out.println("################################################################################");
+
+        //get last index
+        int lastIndex = reminders.size();
+
+        System.out.print("Enter your option: ");
+        int option = scan.nextInt();
+        scan.nextLine();
+        switch(option) {
+            case 1:
+                System.out.print("Reminder name: ");
+                String name = scan.nextLine();
+                System.out.print("Date(MM/DD/YY): ");
+                String date = scan.nextLine();
+                System.out.print("Time: ");
+                String time = scan.nextLine();
+                reminders.add(new ArrayList<>());
+                reminders.get(lastIndex).add(name);
+                reminders.get(lastIndex).add(date);
+                reminders.get(lastIndex).add(time);
+                displayReminders();
+                break;
+            case 2:
+                System.out.print("Index of reminder to remove: ");
+                int toRemove = scan.nextInt();
+                reminders.remove(toRemove - 1);
+                displayReminders();
+                break;
+            case 0:
+                displayMenu();
+                break;
+            default:
+                displayReminders();
                 break;
         }
     }
