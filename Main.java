@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class Main {
     static Scanner scan = new Scanner(System.in);
+
     //Built-in profile
     static String username = "admin";
     static String password = "pass";
@@ -12,7 +13,7 @@ public class Main {
     static String lName = "Salonga";
     static int age = 43;
     static String religion = "Roman Catholic";
-    static String emails[] = {"asiong.salonga@gmai.com", "hariakongtondo@yahoo.com", "n/a", "n/a", "n/a"};
+    static String emails[] = {"asiong.salonga@gmail.com", "hariakongtondo@yahoo.com", "n/a", "n/a", "n/a"};
     static String contactNums[] = {"09987654321", "091231231213", "n/a", "n/a", "123"};
     static char gender = 'm';
     static String maritalStatus = "married";
@@ -28,6 +29,10 @@ public class Main {
     //Reminders
     static ArrayList<ArrayList<String>> reminders = new ArrayList<>();
     
+    //To-do list
+    static HashMap <String, String> todoList = new HashMap<String, String>(); 
+    //Notes
+    static HashMap <String, String> notes = new HashMap<String, String>();
     public static void displayWelcome() {
         
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -667,26 +672,11 @@ public class Main {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
-        System.out.println("#      My Reminders:                                                           #");
+        System.out.println("#      To-do List: :                                                           #");
         System.out.println("#                                                                              #");
-        System.out.println("#         Name:                  Date:                  Time:                  #");
-
-        int count = 1;
-        for(ArrayList<String> row: reminders) {
-            if(!row.isEmpty()){
-                String name = row.get(0);
-                if(name.length() > 19) {
-                    name = name.substring(0, 19) + "...";
-                }
-
-            System.out.printf("#      (%d) %-22s %-22s %-22s",count, name, row.get(1), row.get(2));
-            System.out.println("#");
-            count++;
-            }
-        }
-        
         System.out.println("#                                                                              #");
-        System.out.println("#                                        (1) Add   (2) Remove   (0) Exit       #");
+        System.out.println("#                                                                              #");
+        System.out.println("#                             (1) Add   (2) Remove  (3) Edit    (0) Exit       #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
