@@ -30,9 +30,10 @@ public class Main {
     static ArrayList<ArrayList<String>> reminders = new ArrayList<>();
     
     //To-do list
-    static HashMap <String, String> todoList = new HashMap<String, String>(); 
+    static ArrayList<String[]> toDoList = new ArrayList<String[]>(); 
     //Notes
     static HashMap <String, String> notes = new HashMap<String, String>();
+
     public static void displayWelcome() {
         
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -83,15 +84,19 @@ public class Main {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
-        System.out.printf("#        %-70s","Welcome" + " " + fName + " " + lName + "!");
+        System.out.printf("#                            %-50s","Good Day" + " " + fName + " " + lName + "!");
         System.out.println("#");
         System.out.println("#                                                                              #");
-        System.out.println("#        (1) My Personal Informations                                          #");
-        System.out.println("#        (2) Phone Book                                                        #");
-        System.out.println("#        (3) Reminders                                                         #");
-        System.out.println("#        (4) To-do list                                                        #");
-        System.out.println("#        (5) Notes                                                             #");
-        System.out.println("#        (0) Log out                                                           #");
+        System.out.println("#                           Welcome to Project A.B.E.L                         #");
+        System.out.println("#                      Personal Information Management System                  #");
+        System.out.println("#                               Safe and Reliable                              #");
+        System.out.println("#                                                                              #");
+        System.out.println("#                 (1) My Personal Informations                                 #");
+        System.out.println("#                 (2) Phone Book                                               #");
+        System.out.println("#                 (3) Reminders                                                #");
+        System.out.println("#                 (4) To-do list                                               #");
+        System.out.println("#                 (5) Notes                                                    #");
+        System.out.println("#                 (0) Log out                                                  #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
@@ -106,11 +111,13 @@ public class Main {
                 displayContactList();
                 break;
             case 3:
-            displayReminders();
+                displayReminders();
                 break;
             case 4:
+                displayTodoList();
                 break;
             case 5:
+                displayNotes();
                 break;
             case 0:
                 break;
@@ -548,6 +555,7 @@ public class Main {
         }       
     }
 
+    //Add to contact list my current contacts
     public static void displayContactList(){
         for(int i = 0; i < contactNums.length; i++) {
             if(contactNums[i].equals("n/a")) continue;
@@ -561,8 +569,8 @@ public class Main {
         System.out.println("#                                                                              #");
         System.out.println("#    Name:                         Phone Number:                               #");
 
-        for(String i: contacts.keySet()) {
-            System.out.printf("#     %-29s %-43s", i, contacts.get(i));
+        for(String key: contacts.keySet()) {
+            System.out.printf("#     %-29s %-43s", key, contacts.get(key));
             System.out.println("#");
         }
 
@@ -629,7 +637,7 @@ public class Main {
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
-        //get last index
+        //get last index of the ArrayList
         int lastIndex = reminders.size();
 
         System.out.print("Enter your option: ");
@@ -665,46 +673,60 @@ public class Main {
     }
 
     public static void displayTodoList(){
-        reminders.add(new ArrayList<>());
-        reminders.get(0).add("Itecc01 Proj Submission");
-        reminders.get(0).add("12/11/2023");
-        reminders.get(0).add("10:30 AM");
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
-        System.out.println("#      To-do List: :                                                           #");
+        System.out.println("#      To-do List:                                                             #");
         System.out.println("#                                                                              #");
+        
+        int count = 1; //index count for every todo item
+        for(String row[]: toDoList) {
+            //if the name exceeds 63 chars it (...) will be added
+            String name = row[1];
+                if(name.length() > 19) {
+                    name = name.substring(0, 62) + "...";
+                }
+            System.out.printf("#     (%d) [%s] %-65s", count, row[0], name);
+            System.out.println("#");
+            count++;
+        }
+        
         System.out.println("#                                                                              #");
-        System.out.println("#                                                                              #");
-        System.out.println("#                             (1) Add   (2) Remove  (3) Edit    (0) Exit       #");
+        System.out.println("#                    (1) Add   (2) Remove  (3) Check/Uncheck    (0) Exit       #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
-        //get last index
-        int lastIndex = reminders.size();
+        //get last index of the ArrayList for adding new list
+        int lastIndex = toDoList.size();
 
         System.out.print("Enter your option: ");
         int option = scan.nextInt();
         scan.nextLine();
         switch(option) {
             case 1:
-                System.out.print("Reminder name: ");
+                System.out.print("To-do name: ");
                 String name = scan.nextLine();
-                System.out.print("Date(MM/DD/YY): ");
-                String date = scan.nextLine();
-                System.out.print("Time: ");
-                String time = scan.nextLine();
-                reminders.add(new ArrayList<>());
-                reminders.get(lastIndex).add(name);
-                reminders.get(lastIndex).add(date);
-                reminders.get(lastIndex).add(time);
-                displayReminders();
+                toDoList.add(new String[2]);
+                toDoList.get(lastIndex)[0] = " ";
+                toDoList.get(lastIndex)[1] = name;
+                displayTodoList();
                 break;
             case 2:
-                System.out.print("Index of reminder to remove: ");
+                System.out.print("Index of To-do to remove: ");
                 int toRemove = scan.nextInt();
-                reminders.remove(toRemove - 1);
-                displayReminders();
+                toDoList.remove(toRemove - 1);
+                displayTodoList();
+                break;
+            case 3:
+                System.out.print("Index of To-do to check/uncheck: ");
+                int toCheck = scan.nextInt();
+                String checkBox = toDoList.get(toCheck - 1)[0];
+                System.out.println(checkBox.equals(" "));
+                if(checkBox.equals("✓"))
+                    toDoList.get(toCheck - 1)[0] = " ";
+                else
+                    toDoList.get(toCheck - 1)[0] = "✓";
+                displayTodoList();
                 break;
             case 0:
                 displayMenu();
