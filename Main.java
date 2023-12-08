@@ -13,8 +13,6 @@ public class Main {
     static String lName = "Salonga";
     static int age = 43;
     static String religion = "Roman Catholic";
-    static String emails[] = {"asiong.salonga@gmail.com", "hariakongtondo@yahoo.com", "n/a", "n/a", "n/a"};
-    static String contactNums[] = {"09987654321", "091231231213", "n/a", "n/a", "123"};
     static char gender = 'm';
     static String maritalStatus = "married";
     static String birthday = "06/17/1987";
@@ -24,19 +22,25 @@ public class Main {
     static String currentAddress = "123 Broken St., Brgy Inuman, Tanauan, Batangas";
 
     //Contacts
-    static HashMap <String, String> contacts = new HashMap<String, String>();
+    static ArrayList<String[]> contacts = new ArrayList<String[]>();
 
     //Reminders
     static ArrayList<ArrayList<String>> reminders = new ArrayList<>();
     
     //To-do list
     static ArrayList<String[]> toDoList = new ArrayList<String[]>(); 
-    //Notes
-    static HashMap <String, String> notes = new HashMap<String, String>();
 
+    public static void nextPage() {
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
+    public static void displayExit() {
+        System.out.println("#################################################################################");
+        System.out.println("#                                                                               #");
+        System.out.println("#                   Thank you, Please come again! :)                            #");
+        System.out.println("#                                                                               #");
+        System.out.println("#################################################################################");
+    }
     public static void displayWelcome() {
-        
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("#################################################################################");
         System.out.println("#                                                                               #");
         System.out.println("#                            Welcome to Project A.B.E.L                         #");
@@ -56,32 +60,42 @@ public class Main {
         int welcomeOption = scan.nextInt();
         switch(welcomeOption) {
             case 1:
+                nextPage();
                 displayLogin();
                 break;
             case 2:
+                nextPage();
                 displaySignup();
                 break;
             case 3:
+                nextPage();
                 displayContacts();
                 break;
             case 4:
+                nextPage();
                 displayAbout();
                 break;
             case 5:
+                nextPage();
                 displayPrivacyPolicy(); 
                 break;
             case 6:
+                nextPage();
                 displayAgreement();
                 break;
             case 0:
+                nextPage();
+                displayExit();
                 break;
             default:
-                System.out.println("Invalid option");;
+                nextPage();
+                System.out.println("Invalid option, please try again.\n");
+                displayWelcome();
+                break;
         }
     }
 
     public static void displayMenu() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
         System.out.printf("#                            %-50s","Good Day" + " " + fName + " " + lName + "!");
@@ -92,10 +106,9 @@ public class Main {
         System.out.println("#                               Safe and Reliable                              #");
         System.out.println("#                                                                              #");
         System.out.println("#                 (1) My Personal Informations                                 #");
-        System.out.println("#                 (2) Phone Book                                               #");
+        System.out.println("#                 (2) Contacts                                                 #");
         System.out.println("#                 (3) Reminders                                                #");
         System.out.println("#                 (4) To-do list                                               #");
-        System.out.println("#                 (5) Notes                                                    #");
         System.out.println("#                 (0) Log out                                                  #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
@@ -105,30 +118,33 @@ public class Main {
 
         switch(option){
             case 1:
+                nextPage();
                 displayInfoPage();
                 break;
             case 2:
+                nextPage();
                 displayContactList();
                 break;
             case 3:
+                nextPage();
                 displayReminders();
                 break;
             case 4:
+                nextPage();
                 displayTodoList();
                 break;
-            case 5:
-                displayNotes();
-                break;
             case 0:
+                nextPage();
+                displayWelcome();
                 break;
             default:
-                System.out.println("Invalid option");
+                System.out.println("Invalid option, please try again. \n");
+                displayMenu();
                 break;
         }     
     }
 
     public static void displayLogin() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("#################################################################################");
         System.out.println("#                                                                               #");
         System.out.println("#                          Welcome to Project A.B.E.L                           #");
@@ -146,14 +162,15 @@ public class Main {
         String loginPassword = scan.nextLine();
 
         if(loginUsername.equals(username) && loginPassword.equals(password)) {
+            nextPage();
             displayMenu();
         } else {
+            nextPage();
             displayRelogin();
         }
         
     }
     public static void displayRelogin() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("#################################################################################");
         System.out.println("#                                                                               #");
         System.out.println("#                          Welcome to Project A.B.E.L                           #");
@@ -171,14 +188,15 @@ public class Main {
         String loginPassword = scan.nextLine();
 
         if(loginUsername.equals(username) && loginPassword.equals(password)) {
+            nextPage();
             displayMenu();
         } else {
+            nextPage();
             displayRelogin();
         }
     }
 
     public static void displaySignup() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("#################################################################################");
         System.out.println("#                                                                               #");
         System.out.println("#                          Welcome to Project A.B.E.L                           #");
@@ -200,62 +218,24 @@ public class Main {
         mName = scan.nextLine();
         System.out.print("Last Name: ");
         lName = scan.nextLine();
-        System.out.print("Age: ");
-        age = scan.nextInt();
-        scan.nextLine();
         System.out.print("Gender(m/f): ");
         gender = scan.next().charAt(0);
-        scan.nextLine();
-        System.out.print("Marital Status: ");
-        maritalStatus = scan.nextLine();
-        System.out.print("Religion: ");
-        religion = scan.nextLine();
-        System.out.print("Birthday (MM/DD/YYYY): ");
-        birthday = scan.nextLine();
-        System.out.print("Birthplace: ");
-        birthplace = scan.nextLine();
-        System.out.print("Occupation: ");
-        occupation = scan.nextLine();
+        System.out.print("Age: ");
+        age = scan.nextInt();
+        religion = "n/a";
+        maritalStatus = "n/a"; 
+        currentAddress = "n/a";
+        permanentAddress = "n/a";
+        birthday = "n/a";
+        birthplace = "n/a";
+        occupation = "n/a";
         
-        System.out.println("Please enter your maximum of 5 emails. \n Enter \"n/a\" if you don't want to add another email.");
-        for(int i = 0; i < emails.length; i++) {
-            emails[i] = "n/a";  //reset
-        }
-        for(int i = 0, count = 1; i < emails.length; i++) {
-            System.out.printf("Enter email #%d: ", count);
-            emails[i] = scan.nextLine();
-            if(emails[i].equals("n/a")) {
-                break;
-            }
-            count++;
-        }
-
-        System.out.println("Please enter your maximum of 5 contact numbers. \n Enter \"n/a\" if you don't want to add another contact number.");
-        for(int i = 0; i < contactNums.length; i++) {
-            contactNums[i] = "n/a";  //reset
-        }
-        for(int i = 0, count = 1; i < contactNums.length; i++) {
-            System.out.printf("Enter contact number #%d: ", count);
-            contactNums[i] = scan.nextLine();
-            if(contactNums[i].equals("n/a")) {
-                break;
-            }
-            count++;
-        }
-        
-        
-        
-        System.out.print("Permanent Address: ");
-        permanentAddress = scan.nextLine();
-        System.out.print("Current Address: ");
-        currentAddress = scan.nextLine();
-        
+        nextPage();
         displayMenu();
     }
 
 
     public static void displayContacts() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("#################################################################################");
         System.out.println("#                                                                               #");
         System.out.println("#       Contact me at:                                                          #");
@@ -271,11 +251,14 @@ public class Main {
         int myOption = scan.nextInt();
 
         if(myOption == 0) {
+            nextPage();
             displayWelcome();
+        } else {
+            System.out.println("Invalid option, please try again.\n");
+            displayContacts();
         }
     }
     public static void displayAbout() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
         System.out.println("#                     Project A.B.E.L., by Ronald Abel                         #");
@@ -291,13 +274,16 @@ public class Main {
         System.out.print("Enter your option: ");
         int myOption = scan.nextInt();
 
-        if(myOption == 0) {
+        if(myOption == 0){
+            nextPage();
             displayWelcome();
+        } else {
+            System.out.println("Invalid option, please try again.\n");
+            displayAbout();
         }
     }
 
     public static void displayPrivacyPolicy() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
         System.out.println("#        Read our Privacy Policy At:                                           #");
@@ -312,12 +298,15 @@ public class Main {
         int myOption = scan.nextInt();
 
         if(myOption == 0) {
+            nextPage();
             displayWelcome();
+        } else {
+            System.out.println("Invalid option, please try again.\n");
+            displayPrivacyPolicy();
         }
     }
 
     public static void displayAgreement() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
         System.out.println("#        Read our Terms and Agreement At:                                      #");
@@ -332,12 +321,15 @@ public class Main {
         int myOption = scan.nextInt();
 
         if(myOption == 0) {
+            nextPage();
             displayWelcome();
+        } else {
+            System.out.println("Invalid option, please try again.\n");
+            displayAgreement();
         }
     }
     
     static void displayInfoPage() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
         System.out.println("#   My Personal Informations:                                                  #");
@@ -366,54 +358,31 @@ public class Main {
         System.out.println("#");
         System.out.printf("#   %-75s","Current Address: " + currentAddress);
         System.out.println("#");
-
-        System.out.printf("#   %-75s","Emails: ");
-        System.out.println("#");
-        int emailCount = 1;
-        for(int i = 0; i < emails.length; i++) {           
-            if(emails[i].equals("n/a")){
-                continue;
-            } else {
-                System.out.printf("#    #%d: %-70s", emailCount, emails[i]);
-                System.out.println("#");
-                emailCount += 1; 
-            }
-        }
-
-        System.out.printf("#   %-75s","Contact Numbers: ");
-        System.out.println("#");
-
-        int contactCount = 1;
-        for(int i = 0; i < contactNums.length; i++) {           
-            if(contactNums[i].equals("n/a")){
-                continue;
-            } else {
-                System.out.printf("#    #%d: %-70s", contactCount, contactNums[i]);
-                System.out.println("#");
-                contactCount += 1; 
-            }
-        }
         System.out.println("#                                                                              #");
-        System.out.println("#                                               (1) Edit Mode   (0) Exit       #");
+        System.out.println("#                                                    (1) Edit   (0) Exit       #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
-        System.out.println("Enter you option");
+        System.out.print("Enter you option: ");
         int option = scan.nextInt();
         switch(option) {
             case 1:
+                nextPage();
                 displayEditInfoPage();
                 break;
             case 0:
+                nextPage();
                 displayMenu();
                 break;
             default:
+                nextPage();
+                System.out.println("Invalid option, please try again.\n");
+                displayInfoPage();
                 break;
         }
     }
 
     static void displayEditInfoPage() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
         System.out.println("#    Edit Mode:                                                                #");
@@ -443,135 +412,107 @@ public class Main {
         System.out.printf("#   (12) %-70s","Current Address: " + currentAddress);
         System.out.println("#");
 
-        System.out.printf("#   (13) %-70s","Emails: ");
-        System.out.println("#");
-        int emailCount = 1;
-        for(int i = 0; i < emails.length; i++) {           
-            if(emails[i].equals("n/a")){
-                continue;
-            } else {
-                System.out.printf("#      #%d: %-68s", emailCount, emails[i]);
-                System.out.println("#");
-                emailCount += 1; 
-            }
-        }
-
-        System.out.printf("#   (14) %-70s","Contact Numbers: ");
-        System.out.println("#");
-
-        int contactCount = 1;
-        for(int i = 0; i < contactNums.length; i++) {           
-            if(contactNums[i].equals("n/a")){
-                continue;
-            } else {
-                System.out.printf("#      #%d: %-68s", contactCount, contactNums[i]);
-                System.out.println("#");
-                contactCount += 1; 
-            }
-        }
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
-        System.out.println("Enter your option: ");
+        System.out.print("Enter your option: ");
         int option = scan.nextInt();
         scan.nextLine();
         switch (option) {
             case 1:
                 System.out.print("New: ");
                 fName = scan.nextLine();
+                nextPage();
                 displayInfoPage();
                 break;
             case 2:
                 System.out.print("New: ");
                 mName = scan.nextLine();
+                nextPage();
                 displayInfoPage();
                 break;
             case 3:
                 System.out.print("New: ");
                 lName = scan.nextLine();
+                nextPage();
                 displayInfoPage();
                 break;
             case 4:
                 System.out.print("New: ");
                 age = scan.nextInt();
+                nextPage();
                 displayInfoPage();
                 break;
             case 5:
                 System.out.print("New: ");
                 gender = scan.next().charAt(0);
+                nextPage();
                 displayInfoPage();
                 break;
             case 6:
                 System.out.print("New: ");
                 maritalStatus = scan.nextLine();
+                nextPage();
                 displayInfoPage();
                 break;
             case 7:
                 System.out.print("New: ");
                 religion = scan.nextLine();
+                nextPage();
                 displayInfoPage();
                 break;
             case 8:
                 System.out.print("New: ");
                 birthday = scan.nextLine();
+                nextPage();
                 displayInfoPage();
                 break;
             case 9:
                 System.out.print("New: ");
                 birthplace = scan.nextLine();
+                nextPage();
                 displayInfoPage();
                 break;
             case 10:
                 System.out.print("New: ");
                 occupation = scan.nextLine();
+                nextPage();
                 displayInfoPage();
                 break;
             case 11:
                 System.out.print("New: ");
                 permanentAddress = scan.nextLine();
+                nextPage();
                 displayInfoPage();
                 break;
             case 12:
                 System.out.print("New: ");
                 currentAddress = scan.nextLine();
-                displayInfoPage();
-                break;
-            case 13:
-                System.out.print("Email #: ");
-                int emailIndex = 1 - scan.nextInt();
-                System.out.print("New: ");
-                emails[emailIndex] = scan.nextLine();
-                displayInfoPage();
-                break;
-            case 14:
-                System.out.print("Contact #: ");
-                int contIndex = 1 - scan.nextInt();
-                System.out.print("New: ");
-                emails[contIndex] = scan.nextLine();
+                nextPage();
                 displayInfoPage();
                 break;
             default:
+                nextPage();
+                System.out.println("Invalid option, please try again.\n");
+                displayEditInfoPage(); 
                 break;  
         }       
     }
 
     //Add to contact list my current contacts
     public static void displayContactList(){
-        for(int i = 0; i < contactNums.length; i++) {
-            if(contactNums[i].equals("n/a")) continue;
-            contacts.put("My Number" + (i + 1), contactNums[i]);
-        }
         
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
         System.out.println("#    My Contact List:                                                          #");
         System.out.println("#                                                                              #");
-        System.out.println("#    Name:                         Phone Number:                               #");
-
-        for(String key: contacts.keySet()) {
-            System.out.printf("#     %-29s %-43s", key, contacts.get(key));
+        System.out.println("#     Name:                         Contact Detail:                            #");
+        
+        int count = 1;
+        for(String row[]: contacts) {
+            System.out.printf("#  (%d) %-27s %-44s",count, row[0], row[1]);
             System.out.println("#");
+            count++;
         }
 
         System.out.println("#                                                                              #");
@@ -582,25 +523,39 @@ public class Main {
         System.out.print("Enter your option: ");
         int option = scan.nextInt();
         scan.nextLine();
+
+        int lastIndex = contacts.size();
         switch(option) {
             case 1:
                 System.out.print("Contact name: ");
                 String name = scan.nextLine();
-                System.out.print("Phone number: ");
-                String pnum = scan.nextLine();
-                contacts.put(name, pnum);
+                System.out.print("Contact detail: ");
+                String cont = scan.nextLine();
+                contacts.add(new String[2]);
+                contacts.get(lastIndex)[0] = name;
+                contacts.get(lastIndex)[1] = cont;
+                nextPage();
                 displayContactList();
                 break;
             case 2:
-                System.out.print("Contact name to remove: ");
-                String toRemove = scan.nextLine();
-                contacts.remove(toRemove);
+                if (contacts.size() == 0) {
+                    nextPage();
+                    System.out.println("Nothing to delete.\n");
+                    displayContactList();
+                }
+                System.out.print("Index of contact to remove: ");
+                int toRemove = scan.nextInt();
+                contacts.remove(toRemove - 1);
+                nextPage();
                 displayContactList();
                 break;
             case 0:
+                nextPage();
                 displayMenu();
                 break;
             default:
+                nextPage();
+                System.out.println("Invalid option, please try again.\n");
                 displayContactList();
                 break;
         }
@@ -611,7 +566,6 @@ public class Main {
         reminders.get(0).add("Itecc01 Proj Submission");
         reminders.get(0).add("12/11/2023");
         reminders.get(0).add("10:30 AM");
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
         System.out.println("#      My Reminders:                                                           #");
@@ -655,25 +609,29 @@ public class Main {
                 reminders.get(lastIndex).add(name);
                 reminders.get(lastIndex).add(date);
                 reminders.get(lastIndex).add(time);
+                nextPage();
                 displayReminders();
                 break;
             case 2:
                 System.out.print("Index of reminder to remove: ");
                 int toRemove = scan.nextInt();
                 reminders.remove(toRemove - 1);
+                nextPage();
                 displayReminders();
                 break;
             case 0:
+                nextPage();
                 displayMenu();
                 break;
             default:
+                nextPage();
+                System.out.println("Invalid option, please try again.\n");
                 displayReminders();
                 break;
         }
     }
 
     public static void displayTodoList(){
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
         System.out.println("#      To-do List:                                                             #");
@@ -681,7 +639,7 @@ public class Main {
         
         int count = 1; //index count for every todo item
         for(String row[]: toDoList) {
-            //if the name exceeds 63 chars it (...) will be added
+            //if the name exceeds 63 chars (...) will be added
             String name = row[1];
                 if(name.length() > 19) {
                     name = name.substring(0, 62) + "...";
@@ -709,12 +667,14 @@ public class Main {
                 toDoList.add(new String[2]);
                 toDoList.get(lastIndex)[0] = " ";
                 toDoList.get(lastIndex)[1] = name;
+                nextPage();
                 displayTodoList();
                 break;
             case 2:
                 System.out.print("Index of To-do to remove: ");
                 int toRemove = scan.nextInt();
                 toDoList.remove(toRemove - 1);
+                nextPage();
                 displayTodoList();
                 break;
             case 3:
@@ -726,83 +686,22 @@ public class Main {
                     toDoList.get(toCheck - 1)[0] = " ";
                 else
                     toDoList.get(toCheck - 1)[0] = "✓";
+                nextPage();
                 displayTodoList();
                 break;
             case 0:
+                nextPage();
                 displayMenu();
                 break;
             default:
+                nextPage();
                 displayReminders();
                 break;
         }
     }
 
-    public static void displayNotes(){
-        reminders.add(new ArrayList<>());
-        reminders.get(0).add("Itecc01 Proj Submission");
-        reminders.get(0).add("12/11/2023");
-        reminders.get(0).add("10:30 AM");
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("################################################################################");
-        System.out.println("#                                                                              #");
-        System.out.println("#      My Reminders:                                                           #");
-        System.out.println("#                                                                              #");
-        System.out.println("#         Name:                  Date:                  Time:                  #");
-
-        int count = 1;
-        for(ArrayList<String> row: reminders) {
-            if(!row.isEmpty()){
-                String name = row.get(0);
-                if(name.length() > 19) {
-                    name = name.substring(0, 19) + "...";
-                }
-
-            System.out.printf("#      (%d) %-22s %-22s %-22s",count, name, row.get(1), row.get(2));
-            System.out.println("#");
-            count++;
-            }
-        }
-        
-        System.out.println("#                                                                              #");
-        System.out.println("#                                        (1) Add   (2) Remove   (0) Exit       #");
-        System.out.println("#                                                                              #");
-        System.out.println("################################################################################");
-
-        //get last index
-        int lastIndex = reminders.size();
-
-        System.out.print("Enter your option: ");
-        int option = scan.nextInt();
-        scan.nextLine();
-        switch(option) {
-            case 1:
-                System.out.print("Reminder name: ");
-                String name = scan.nextLine();
-                System.out.print("Date(MM/DD/YY): ");
-                String date = scan.nextLine();
-                System.out.print("Time: ");
-                String time = scan.nextLine();
-                reminders.add(new ArrayList<>());
-                reminders.get(lastIndex).add(name);
-                reminders.get(lastIndex).add(date);
-                reminders.get(lastIndex).add(time);
-                displayReminders();
-                break;
-            case 2:
-                System.out.print("Index of reminder to remove: ");
-                int toRemove = scan.nextInt();
-                reminders.remove(toRemove - 1);
-                displayReminders();
-                break;
-            case 0:
-                displayMenu();
-                break;
-            default:
-                displayReminders();
-                break;
-        }
-    }
     public static void main(String[] args) {
+        nextPage();
         displayWelcome();
     }
 }
