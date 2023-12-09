@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Main {
+public class ProjectAbel {
     static Scanner scan = new Scanner(System.in);
 
     //Built-in profile
@@ -43,7 +43,7 @@ public class Main {
     public static void displayWelcome() {
         System.out.println("#################################################################################");
         System.out.println("#                                                                               #");
-        System.out.println("#                            Welcome to Project A.B.E.L                         #");
+        System.out.println("#                              Welcome to Project Abel                          #");
         System.out.println("#                       Personal Information Management System                  #");
         System.out.println("#                                Safe and Reliable                              #");
         System.out.println("#                                                                               #");
@@ -101,7 +101,7 @@ public class Main {
         System.out.printf("#                            %-50s","Good Day" + " " + fName + " " + lName + "!");
         System.out.println("#");
         System.out.println("#                                                                              #");
-        System.out.println("#                           Welcome to Project A.B.E.L                         #");
+        System.out.println("#                             Welcome to Project Abel                          #");
         System.out.println("#                      Personal Information Management System                  #");
         System.out.println("#                               Safe and Reliable                              #");
         System.out.println("#                                                                              #");
@@ -147,7 +147,7 @@ public class Main {
     public static void displayLogin() {
         System.out.println("#################################################################################");
         System.out.println("#                                                                               #");
-        System.out.println("#                          Welcome to Project A.B.E.L                           #");
+        System.out.println("#                         Welcome to Project Abel                               #");
         System.out.println("#                   Personal Information Management System                      #");
         System.out.println("#                             Safe and Reliable                                 #");
         System.out.println("#                                                                               #");
@@ -160,7 +160,6 @@ public class Main {
         String loginUsername = scan.nextLine();
         System.out.printf("Enter your password: ");
         String loginPassword = scan.nextLine();
-
         if(loginUsername.equals(username) && loginPassword.equals(password)) {
             nextPage();
             displayMenu();
@@ -170,36 +169,11 @@ public class Main {
         }
         
     }
-    public static void displayRelogin() {
-        System.out.println("#################################################################################");
-        System.out.println("#                                                                               #");
-        System.out.println("#                          Welcome to Project A.B.E.L                           #");
-        System.out.println("#                   Personal Information Management System                      #");
-        System.out.println("#                             Safe and Reliable                                 #");
-        System.out.println("#                                                                               #");
-        System.out.println("#                                                                               #");
-        System.out.println("#               Wrong Username or Password, Please Try Again  :)                #");
-        System.out.println("#                                                                               #");
-        System.out.println("#################################################################################");
-
-        System.out.printf("Enter your username: ");
-        String loginUsername = scan.nextLine();
-        System.out.printf("Enter your password: ");
-        String loginPassword = scan.nextLine();
-
-        if(loginUsername.equals(username) && loginPassword.equals(password)) {
-            nextPage();
-            displayMenu();
-        } else {
-            nextPage();
-            displayRelogin();
-        }
-    }
 
     public static void displaySignup() {
         System.out.println("#################################################################################");
         System.out.println("#                                                                               #");
-        System.out.println("#                          Welcome to Project A.B.E.L                           #");
+        System.out.println("#                         Welcome to Project Abel                               #");
         System.out.println("#                   Personal Information Management System                      #");
         System.out.println("#                             Safe and Reliable                                 #");
         System.out.println("#                                                                               #");
@@ -234,6 +208,37 @@ public class Main {
         displayMenu();
     }
 
+    public static void displayRelogin() {
+        System.out.println("#################################################################################");
+        System.out.println("#                                                                               #");
+        System.out.println("#                          Welcome to Project Abel                              #");
+        System.out.println("#                   Personal Information Management System                      #");
+        System.out.println("#                             Safe and Reliable                                 #");
+        System.out.println("#                                                                               #");
+        System.out.println("#                                                                               #");
+        System.out.println("#               Wrong Username or Password, Please Try Again  :)                #");
+        System.out.println("#                                                                               #");
+        System.out.println("#################################################################################");
+
+        System.out.print("Register instead?(y/n): ");
+        char choice = scan.next().charAt(0);
+        if(choice == 'y') {
+            nextPage();
+            displaySignup();
+        }
+        String loginUsername = scan.nextLine();
+        System.out.print("Enter your password: ");
+        String loginPassword = scan.nextLine();
+
+        if(loginUsername.equals(username) && loginPassword.equals(password)) {
+            nextPage();
+            displayMenu();
+        } else {
+            nextPage();
+            displayRelogin();
+        }
+    }
+
 
     public static void displayContacts() {
         System.out.println("#################################################################################");
@@ -261,7 +266,7 @@ public class Main {
     public static void displayAbout() {
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
-        System.out.println("#                     Project A.B.E.L., by Ronald Abel                         #");
+        System.out.println("#                      Project Abel, by Ronald Abel                            #");
         System.out.println("#               is a Personal Information Management System                    #");
         System.out.println("#                 created as a final project for ITECC01                       #");
         System.out.println("#                                                                              #");
@@ -385,7 +390,7 @@ public class Main {
     static void displayEditInfoPage() {
         System.out.println("################################################################################");
         System.out.println("#                                                                              #");
-        System.out.println("#    Edit Mode:                                                                #");
+        System.out.println("#    What do you want to edit?:                                                #");
         System.out.println("#                                                                              #");
         System.out.printf("#   (1) %-71s","First Name: " + fName);
         System.out.println("#");
@@ -411,7 +416,8 @@ public class Main {
         System.out.println("#");
         System.out.printf("#   (12) %-70s","Current Address: " + currentAddress);
         System.out.println("#");
-
+        System.out.println("#                                                                              #");
+        System.out.println("#                                                                (0) Exit      #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
@@ -491,6 +497,9 @@ public class Main {
                 nextPage();
                 displayInfoPage();
                 break;
+            case 0:
+                nextPage();
+                displayInfoPage();
             default:
                 nextPage();
                 System.out.println("Invalid option, please try again.\n");
@@ -510,7 +519,7 @@ public class Main {
         
         int count = 1;
         for(String row[]: contacts) {
-            System.out.printf("#  (%d) %-27s %-44s",count, row[0], row[1]);
+            System.out.printf("#  (%d) %-29s %-42s",count, row[0], row[1]);
             System.out.println("#");
             count++;
         }
