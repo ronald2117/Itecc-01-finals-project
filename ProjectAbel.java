@@ -226,6 +226,8 @@ public class ProjectAbel {
             nextPage();
             displaySignup();
         }
+        scan.nextLine();
+        System.out.print("Enter your username: ");
         String loginUsername = scan.nextLine();
         System.out.print("Enter your password: ");
         String loginPassword = scan.nextLine();
@@ -248,7 +250,7 @@ public class ProjectAbel {
         System.out.println("#       Facebook: https://www.facebook.com/ronald1617                           #");
         System.out.println("#       Github: https://github.com/ronald2117                                   #");
         System.out.println("#                                                                               #");
-        System.out.println("#       (0) Exit                                                                #");
+        System.out.println("#                                                                   (0) Exit    #");
         System.out.println("#                                                                               #");
         System.out.println("#################################################################################");
 
@@ -268,11 +270,11 @@ public class ProjectAbel {
         System.out.println("#                                                                              #");
         System.out.println("#                      Project Abel, by Ronald Abel                            #");
         System.out.println("#               is a Personal Information Management System                    #");
-        System.out.println("#                 created as a final project for ITECC01                       #");
+        System.out.println("#                 created as a final project for ITECC02                       #");
         System.out.println("#                                                                              #");
         System.out.println("#                         Hope you like it! :)                                 #");
         System.out.println("#                                                                              #");
-        System.out.println("#       (0) Exit                                                               #");
+        System.out.println("#                                                                  (0) Exit    #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
@@ -295,7 +297,7 @@ public class ProjectAbel {
         System.out.println("#                                                                              #");
         System.out.println("#        https://bit.ly/abel-privacy-policy                                    #");
         System.out.println("#                                                                              #");
-        System.out.println("#       (0) Exit                                                               #");
+        System.out.println("#                                                                  (0) Exit    #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
@@ -318,7 +320,7 @@ public class ProjectAbel {
         System.out.println("#                                                                              #");
         System.out.println("#        https://bit.ly/terms-and-agreement                                    #");
         System.out.println("#                                                                              #");
-        System.out.println("#        (0) Exit                                                              #");
+        System.out.println("#                                                                 (0) Exit     #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
@@ -364,7 +366,7 @@ public class ProjectAbel {
         System.out.printf("#   %-75s","Current Address: " + currentAddress);
         System.out.println("#");
         System.out.println("#                                                                              #");
-        System.out.println("#                                                    (1) Edit   (0) Exit       #");
+        System.out.println("#                                                       (1) Edit   (0) Exit    #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
@@ -417,7 +419,7 @@ public class ProjectAbel {
         System.out.printf("#   (12) %-70s","Current Address: " + currentAddress);
         System.out.println("#");
         System.out.println("#                                                                              #");
-        System.out.println("#                                                                (0) Exit      #");
+        System.out.println("#                                                                  (0) Exit    #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
@@ -508,7 +510,73 @@ public class ProjectAbel {
         }       
     }
 
-    //Add to contact list my current contacts
+    public static void displaySearchContacts(String searched){
+        System.out.println("################################################################################");
+        System.out.println("#                                                                              #");
+        System.out.println("#    Searched Contact List:                                                    #");
+        System.out.println("#                                                                              #");
+        System.out.println("#     Name:                         Contact Detail:                            #");
+
+        for(String row[]: contacts) {
+            if(!row[0].contains(searched)) continue;
+            int index = contacts.indexOf(row) + 1;
+            System.out.printf("#  (%d) %-29s %-42s", index, row[0], row[1]);
+            System.out.println("#");
+        }
+
+        System.out.println("#                                                                              #");
+        System.out.println("#                               (1) Add   (2) Remove   (3) Search   (0) Back   #");
+        System.out.println("#                                                                              #");                
+        System.out.println("################################################################################");
+
+        System.out.print("Enter your option: ");
+        int option = scan.nextInt();                                                                                           
+        scan.nextLine();
+
+        int lastIndex = contacts.size();
+        switch(option) {
+            case 1:
+                System.out.print("Contact name: ");
+                String name = scan.nextLine();
+                System.out.print("Contact detail: ");
+                String cont = scan.nextLine();
+                contacts.add(new String[2]);
+                contacts.get(lastIndex)[0] = name;
+                contacts.get(lastIndex)[1] = cont;
+                nextPage();
+                displayContactList();
+                break;
+            case 2:
+                if (contacts.size() == 0) {
+                    nextPage();
+                    System.out.println("Nothing to delete.\n");
+                    displayContactList();
+                }
+                System.out.print("Index of contact to remove: ");
+                int toRemove = scan.nextInt();
+                contacts.remove(toRemove - 1);
+                nextPage();
+                displayContactList();
+                break;
+            case 3:
+                System.out.print("Contact name to search: ");
+                String search = scan.nextLine();
+                nextPage();
+                displaySearchContacts(search);
+                break;
+            case 0:
+                nextPage();
+                displayContactList();
+                break;
+            default:
+                nextPage();
+                System.out.println("Invalid option, please try again.\n");
+                displayContactList();
+                break;
+        }
+
+    }
+
     public static void displayContactList(){
         
         System.out.println("################################################################################");
@@ -519,13 +587,13 @@ public class ProjectAbel {
         
         int count = 1;
         for(String row[]: contacts) {
-            System.out.printf("#  (%d) %-29s %-42s",count, row[0], row[1]);
+            System.out.printf("#  (%d) %-29s %-42s", count, row[0], row[1]);
             System.out.println("#");
             count++;
         }
 
         System.out.println("#                                                                              #");
-        System.out.println("#                                        (1) Add   (2) Remove   (0) Exit       #");
+        System.out.println("#                               (1) Add   (2) Remove   (3) Search   (0) Exit   #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
@@ -557,6 +625,12 @@ public class ProjectAbel {
                 contacts.remove(toRemove - 1);
                 nextPage();
                 displayContactList();
+                break;
+            case 3:
+                System.out.print("Contact name to search: ");
+                String search = scan.nextLine();
+                nextPage();
+                displaySearchContacts(search);
                 break;
             case 0:
                 nextPage();
@@ -596,7 +670,7 @@ public class ProjectAbel {
         }
         
         System.out.println("#                                                                              #");
-        System.out.println("#                                        (1) Add   (2) Remove   (0) Exit       #");
+        System.out.println("#                                           (1) Add   (2) Remove   (0) Exit    #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
@@ -610,7 +684,7 @@ public class ProjectAbel {
             case 1:
                 System.out.print("Reminder name: ");
                 String name = scan.nextLine();
-                System.out.print("Date(MM/DD/YY): ");
+                System.out.print("Date(MM/DD/YYYY): ");
                 String date = scan.nextLine();
                 System.out.print("Time: ");
                 String time = scan.nextLine();
@@ -659,7 +733,7 @@ public class ProjectAbel {
         }
         
         System.out.println("#                                                                              #");
-        System.out.println("#                    (1) Add   (2) Remove  (3) Check/Uncheck    (0) Exit       #");
+        System.out.println("#                       (1) Add   (2) Remove  (3) Check/Uncheck    (0) Exit    #");
         System.out.println("#                                                                              #");
         System.out.println("################################################################################");
 
